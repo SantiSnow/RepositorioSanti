@@ -1,0 +1,53 @@
+package usuarios;
+
+public class Administrador extends Usuario {
+
+	public Administrador(String nombreUsuario, String contraseñaUsuario, Integer numeroId, Integer puntosAcumulados) {
+		super(nombreUsuario, contraseñaUsuario, numeroId, puntosAcumulados);
+	}
+
+	
+	//metodos sobreescritos desde Usuario
+	@Override
+	public Boolean ingresarAlSistema(String nombreUsuario, String contraseñaUsuario) {
+		
+		return false;
+	}
+	@Override
+	public void salirDelSistema() {
+		
+	}
+	@Override
+	public Integer verNumeroDeIdPorNombre(String nombreUsuario) {
+		
+		return null;
+	}
+	@Override
+	public void registrarseComoUsuario(String nombreUsuario, String contraseñaUsuario) {
+		
+	}
+	@Override
+	public void realizarUnaCompra(Integer dineroAgastar) {
+			
+	}
+	@Override
+	public void consultarPuntos(String nombreUsuario) {
+		
+	}
+
+	
+	//metodos propios de la clase Admin
+	public void eliminarUnUsuario(String nombreUsuarioAeleiminar, String contraseñaUsuario) {
+		
+	}
+	public Integer conocerCantidadDeUsuarios() {
+		return null;
+	}
+	public void darPuntosAUsuario(String nombreUsuario, Integer puntosAdar) {
+		
+	}
+	public void quitarPuntosAUsuario(String nombreUsuario, Integer puntosAQuitar) {
+		
+	}
+
+}
