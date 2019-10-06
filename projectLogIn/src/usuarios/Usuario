@@ -1,0 +1,47 @@
+package usuarios;
+
+public abstract class Usuario {
+	//atributos
+	private String nombreUsuario;
+	private String contraseñaUsuario;
+	private Integer numeroId;
+	private Integer puntosAcumulados;
+	
+	
+	//constructor
+	public Usuario (String nombreUsuario, String contraseñaUsuario, Integer numeroId, Integer puntosAcumulados) {
+		this.nombreUsuario = nombreUsuario; 
+		this.contraseñaUsuario = contraseñaUsuario;
+		this.numeroId = numeroId;
+		this.puntosAcumulados = puntosAcumulados;
+	}
+
+	//getters y setters
+	public String getNombreUsuario() {
+		return nombreUsuario;
+	}
+	public void setNombreUsuario(String nombreUsuario) {
+		this.nombreUsuario = nombreUsuario;
+	}
+	public String getContraseñaUsuario() {
+		return contraseñaUsuario;
+	}
+	public void setContraseñaUsuario(String contraseñaUsuario) {
+		this.contraseñaUsuario = contraseñaUsuario;
+	}
+	public Integer getNumeroId() {
+		return numeroId;
+	}
+	public void setNumeroId(Integer numeroId) {
+		this.numeroId = numeroId;
+	}
+	
+	//metodos
+	public abstract Boolean ingresarAlSistema(String nombreUsuario, String contraseñaUsuario);
+	public abstract void salirDelSistema();
+	public abstract Integer verNumeroDeIdPorNombre(String nombreUsuario);
+	public abstract void registrarseComoUsuario (String nombreUsuario, String contraseñaUsuario);
+	public abstract void realizarUnaCompra (Integer dineroAgastar);
+	public abstract void consultarPuntos (String nombreUsuario);
+	
+}
