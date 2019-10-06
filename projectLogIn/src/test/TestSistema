@@ -1,0 +1,88 @@
+package Test;
+
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+import usuarios.Administrador;
+import usuarios.Cliente;
+import usuarios.Mozo;
+import usuarios.Sistema;
+
+public class TestSistema {
+	
+	@Test
+	public void metodoQueTesteaCreacionDeObjetosUsuarios() {
+		Administrador Admin1 = new Administrador("Admin1", "1234" , 45623, 9000);
+		Mozo mozo1 = new Mozo("Mozo1", "1234", 34523, 1000);
+		Cliente cliente1 = new Cliente("Cliente1", "1234", 60589, 100);
+		Sistema sistemaLogIn = new Sistema("SistemaLogIn1");
+		
+		Integer cantidadDeUsuariosPermitidaTest;
+		cantidadDeUsuariosPermitidaTest = 3;
+		
+		sistemaLogIn.agregarAdministradorAlSistema(Admin1);
+		sistemaLogIn.agregarMozoAlSistema(mozo1);
+		sistemaLogIn.agregarClienteAlSistema(cliente1);
+		
+		Assert.assertEquals(sistemaLogIn.conocerCantidadDeUsuarios(), cantidadDeUsuariosPermitidaTest);
+		
+	}
+	
+	@Test
+	public void metodoQueTesteaeliminacionDeObjetosUsuarios() {
+		Administrador Admin1 = new Administrador("Admin1", "1234" , 45623, 9000);
+		Mozo mozo1 = new Mozo("Mozo1", "1234", 34523, 1000);
+		Cliente cliente1 = new Cliente("Cliente1", "1234", 60589, 100);
+		Sistema sistemaLogIn = new Sistema("SistemaLogIn1");
+		
+		Integer usuariosQueDeseaDejar;
+		usuariosQueDeseaDejar = 0;
+		
+		sistemaLogIn.agregarAdministradorAlSistema(Admin1);
+		sistemaLogIn.agregarMozoAlSistema(mozo1);
+		sistemaLogIn.agregarClienteAlSistema(cliente1);
+		
+		sistemaLogIn.eliminarUnUsuarioAdmin(Admin1);
+		sistemaLogIn.eliminarUnUsuarioMozo(mozo1);
+		sistemaLogIn.eliminarUnUsuarioCliente(cliente1);
+		
+		Assert.assertEquals(sistemaLogIn.conocerCantidadDeUsuarios(), usuariosQueDeseaDejar);
+	}
+	
+	@Test
+	public void metodoQueTesteaeliminacionDeObjetosUsuarios2() {
+		Administrador Admin1 = new Administrador("Admin1", "1234" , 45623, 9000);
+		Mozo mozo1 = new Mozo("Mozo1", "1234", 34523, 1000);
+		Cliente cliente1 = new Cliente("Cliente1", "1234", 60589, 100);
+		Sistema sistemaLogIn = new Sistema("SistemaLogIn1");
+		
+		Integer usuariosQueDeseaDejar;
+		usuariosQueDeseaDejar = 2;
+		
+		sistemaLogIn.agregarAdministradorAlSistema(Admin1);
+		sistemaLogIn.agregarMozoAlSistema(mozo1);
+		sistemaLogIn.agregarClienteAlSistema(cliente1);
+		
+		sistemaLogIn.eliminarUnUsuarioAdmin(Admin1);
+		
+		Assert.assertEquals(sistemaLogIn.conocerCantidadDeUsuarios(), usuariosQueDeseaDejar);
+	}
+	
+	@Test
+	public void metodoParaTestearCantidadDeUsuariosYnombre() {
+		Administrador Admin1 = new Administrador("Admin1", "1234" , 45623, 9000);
+		Mozo mozo1 = new Mozo("Mozo1", "1234", 34523, 1000);
+		Cliente cliente1 = new Cliente("Cliente1", "1234", 60589, 100);
+		Sistema sistemaLogIn = new Sistema("SistemaLogIn1");
+		
+		sistemaLogIn.agregarAdministradorAlSistema(Admin1);
+		sistemaLogIn.agregarMozoAlSistema(mozo1);
+		sistemaLogIn.agregarClienteAlSistema(cliente1);
+		
+		Assert.assertEquals(sistemaLogIn.conocerCantidadDeUsuariosYnombreDelSistema(), "El sistema es SistemaLogIn1 Y tiene esta cantidad de usuarios: 3");
+	}
+		
+}
