@@ -1,0 +1,75 @@
+package practicaAbstraccion;
+
+public abstract class Vehiculo {
+
+	private String marca;
+	private String color;
+	private String modelo;
+	private Double kilometraje;
+	private Integer año;
+	private Integer velocidad;
+
+	public Vehiculo (String marca, String color, String modelo, Double kilometraje, Integer año, Integer velocidad) {
+		this.marca = marca;
+		this.color = color;
+		this.modelo = modelo;
+		this.kilometraje = kilometraje;
+		this.año = año;
+	}
+
+
+	//metodos abstractos
+	public abstract void acelerar(Integer VelocidadAcelerada);
+
+	public abstract void frenar(Integer VelocidadFrenada);
+
+	//getter setters
+	public String getMarca() {
+		return marca;
+	}
+
+	public void setMarca(String marca) {
+		this.marca = marca;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public String getModelo() {
+		return modelo;
+	}
+
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+
+	public Double getKilometraje() {
+		return kilometraje;
+	}
+
+	public void setKilometraje(Double kilometraje) {
+		this.kilometraje = kilometraje;
+	}
+
+	public Integer getAño() {
+		return año;
+	}
+
+	public void setAño(Integer año) {
+		this.año = año;
+	}
+
+	public Integer getVelocidad() {
+		return velocidad;
+	}
+
+	public void setVelocidad(Integer velocidad) {
+		this.velocidad = velocidad;
+	}
+
+}
