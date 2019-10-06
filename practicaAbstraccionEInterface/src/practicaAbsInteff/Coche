@@ -1,0 +1,29 @@
+package practicaAbstraccion;
+
+public class Coche extends Vehiculo implements Computadora{
+
+	public Coche(String marca, String color, String modelo, Double kilometraje, Integer año, Integer velocidad) {
+		super(marca, color, modelo, kilometraje, año, velocidad);
+	}
+
+	@Override
+	public void encenderComputadora() {
+		System.out.println("Se encendio la computadora");
+	}
+
+	@Override
+	public void apagarComputadora() {
+		System.out.println("Se apagoo la computadora");
+	}
+
+	@Override
+	public void acelerar (Integer VelocidadAcelerada) {
+		setVelocidad(+ VelocidadAcelerada); 
+	}
+
+	@Override
+	public void frenar(Integer VelocidadFrenada) {
+		setVelocidad(- VelocidadFrenada); 
+	}
+
+}
