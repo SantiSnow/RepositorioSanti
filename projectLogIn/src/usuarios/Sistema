@@ -1,0 +1,101 @@
+package usuarios;
+
+import java.util.ArrayList;
+
+public class Sistema implements InterfSistema{
+	//atributos
+	public String nombreDelSistema;
+	ArrayList <Usuario> listaDeUsuarios = new ArrayList <Usuario> ();
+	
+	//constructor
+	public Sistema (String nombreDelSistema) {
+		this.nombreDelSistema = nombreDelSistema;
+	}
+	
+	//metodo agregar usuario cliente al sistema
+	public String agregarClienteAlSistema(Cliente cliente) {
+		if(listaDeUsuarios.contains(cliente)) {
+			return "El usuario de tipo cliente ya existe";
+		}
+		else {
+			listaDeUsuarios.add(cliente);
+			return "El usuario de tipo cliente fue creado";
+		}
+	}
+	
+	//metodo agregar usuario mozo al sistema
+	public String agregarMozoAlSistema(Mozo mozo) {
+		if(listaDeUsuarios.contains(mozo)) {
+			return "El usuario de tipo mozo ya existe";
+		}
+		else {
+			listaDeUsuarios.add(mozo);
+			return "El usuario de tipo mozo fue creado";
+		}
+	}
+		
+	//metodo agregar usuario administrador al sistema, solo debe haber uno
+	public String agregarAdministradorAlSistema(Administrador administrador) {
+		if(listaDeUsuarios.contains(administrador)) {
+			return "El usuario ya existe";
+		}
+		else {
+			listaDeUsuarios.add(administrador);
+			return "El usuario fue creado";
+		}
+	}
+	
+	//conocer cuantos usuarios hay en el sistema
+	public Integer conocerCantidadDeUsuarios() {
+		return listaDeUsuarios.size();
+	}
+	
+	//conocer cuantos usuarios hay en el sistema y nombre del sistema
+		public String conocerCantidadDeUsuariosYnombreDelSistema() {
+			return "El sistema es "+nombreDelSistema+ " Y tiene esta cantidad de usuarios: "+listaDeUsuarios.size();
+		}
+		
+	
+	//elimina un usuario administrador
+	public String eliminarUnUsuarioAdmin(Administrador administrador) {
+		if(listaDeUsuarios.contains(administrador)) {
+			listaDeUsuarios.remove(administrador);
+			return "Usuario eliminado";
+		}
+		else {
+			return "Usuario no existe";
+		}
+	}
+	
+	//elimina un usuario mozp
+	public String eliminarUnUsuarioMozo(Mozo mozo) {
+		if(listaDeUsuarios.contains(mozo)) {
+			listaDeUsuarios.remove(mozo);
+			return "Usuario eliminado";
+		}
+		else {
+			return "Usuario no existe";
+		}
+	}
+		
+	//elimina un usuario cliente
+	public String eliminarUnUsuarioCliente(Cliente cliente) {
+		if(listaDeUsuarios.contains(cliente)) {
+			listaDeUsuarios.remove(cliente);
+			return "Usuario eliminado";
+		}
+		else {
+			return "Usuario no existe";
+		}
+	}
+	
+	//vacia el sistema de usuarios, solo para administradores
+	public String eliminarTodosLosUsuariosDelSistema(Administrador administrador, String nombreUsuario, String contraseña) {
+		if(listaDeUsuarios.contains(administrador.getNombreUsuario()) && listaDeUsuarios.contains(administrador.getContraseñaUsuario()) ){
+			listaDeUsuarios.clear();
+		}
+		return "El sistema ha sido vaciado";
+	}
+	
+	
+}
