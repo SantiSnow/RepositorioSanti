@@ -1,0 +1,8 @@
+package usuarios;
+
+public interface InterfSistema {
+	public String agregarClienteAlSistema(Cliente cliente);
+	public String agregarMozoAlSistema(Mozo mozo);
+	public String agregarAdministradorAlSistema(Administrador administrador);
+	public Integer conocerCantidadDeUsuarios();
+}
