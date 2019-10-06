@@ -1,0 +1,29 @@
+package practicaAbstraccion;
+
+public class Moto extends Vehiculo implements Computadora{
+
+	public Moto(String marca, String color, String modelo, Double kilometraje, Integer año, Integer velocidad) {
+		super(marca, color, modelo, kilometraje, año, velocidad);
+	}
+
+	@Override
+	public void acelerar(Integer VelocidadAcelerada) {
+		setVelocidad(+ VelocidadAcelerada);
+	}
+
+	@Override
+	public void frenar(Integer VelocidadFrenada) {
+		setVelocidad(+ VelocidadFrenada);
+	}
+
+	@Override
+	public void encenderComputadora() {
+		System.out.println("Se encendio la computadora");
+	}
+
+	@Override
+	public void apagarComputadora() {
+		System.out.println("Se apagoo la computadora");
+	}
+
+}
