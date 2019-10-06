@@ -35,6 +35,12 @@ public abstract class Usuario {
 	public void setNumeroId(Integer numeroId) {
 		this.numeroId = numeroId;
 	}
+	public Integer getPuntosAcumulados() {
+		return puntosAcumulados;
+	}
+	public void setPuntosAcumulados(Integer puntosAcumulados) {
+		this.puntosAcumulados = puntosAcumulados;
+	}
 	
 	//metodos
 	public abstract Boolean ingresarAlSistema(String nombreUsuario, String contraseñaUsuario);
