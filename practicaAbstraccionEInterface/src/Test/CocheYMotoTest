@@ -1,0 +1,27 @@
+package Test;
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
+
+import practicaAbstraccion.Coche;
+import practicaAbstraccion.Moto;
+
+public class CocheYMotoTest {
+
+	@Test
+	public void ProbarMetodos1() {
+		Coche coche1 = new Coche("Bmw", "Negro", "Z1 Coupe", 0.0, 2019, 50);
+		coche1.encenderComputadora();
+		coche1.acelerar(120);
+		coche1.frenar(60);
+	}
+	
+	@Test
+	public void ProbarMetodos2() {
+		Moto moto1 = new Moto("Yamaha", "Blanca", "XRT 9", 0.0, 2018, 75);
+		moto1.encenderComputadora();
+		moto1.acelerar(125);
+		moto1.frenar(35);
+	}
+}
