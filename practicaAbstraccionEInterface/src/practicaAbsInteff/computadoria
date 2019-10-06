@@ -1,0 +1,7 @@
+
+package practicaAbstraccion;
+
+public interface Computadora {
+	void encenderComputadora();
+	void apagarComputadora();
+}
