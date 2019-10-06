@@ -84,5 +84,40 @@ public class TestSistema {
 		
 		Assert.assertEquals(sistemaLogIn.conocerCantidadDeUsuariosYnombreDelSistema(), "El sistema es SistemaLogIn1 Y tiene esta cantidad de usuarios: 3");
 	}
+	
+	@Test
+	public void testParaObetenerCantidadDePuntos() {
+		Administrador Admin1 = new Administrador("Admin1", "1234" , 45623, 9000);
+		Mozo mozo1 = new Mozo("Mozo1", "1234", 34523, 1000);
+		Cliente cliente1 = new Cliente("Cliente1", "1234", 60589, 100);
+		Sistema sistemaLogIn = new Sistema("SistemaLogIn1");
+		
+		sistemaLogIn.agregarAdministradorAlSistema(Admin1);
+		sistemaLogIn.agregarMozoAlSistema(mozo1);
+		sistemaLogIn.agregarClienteAlSistema(cliente1);
+		
+		Assert.assertEquals(sistemaLogIn.consultarPuntosDeUsuarioAdmin(Admin1), "Los puntos del administrador son 9000");
+		Assert.assertEquals(sistemaLogIn.consultarPuntosDeUsuarioMozo(mozo1), "Los puntos del mozo son 1000");
+		Assert.assertEquals(sistemaLogIn.consultarPuntosDeUsuarioCliente(cliente1), "Los puntos del cliente son 100");
+	}
+	
+	@Test
+	public void testearCantidadDePuntosTrasUnaCompra() {
+		Administrador Admin1 = new Administrador("Admin1", "1234" , 45623, 9000);
+		Mozo mozo1 = new Mozo("Mozo1", "1234", 34523, 1000);
+		Cliente cliente1 = new Cliente("Cliente1", "1234", 60589, 100);
+		Sistema sistemaLogIn = new Sistema("SistemaLogIn1");
+		
+		sistemaLogIn.agregarAdministradorAlSistema(Admin1);
+		sistemaLogIn.agregarMozoAlSistema(mozo1);
+		sistemaLogIn.agregarClienteAlSistema(cliente1);
+		
+		Assert.assertEquals(sistemaLogIn.consultarPuntosDeUsuarioCliente(cliente1), "Los puntos del cliente son 100");
+		sistemaLogIn.realizarUnaCompraYsumarPuntos(cliente1);
+		
+		Assert.assertEquals(sistemaLogIn.consultarPuntosDeUsuarioAdmin(Admin1), "Los puntos del administrador son 9000");
+		Assert.assertEquals(sistemaLogIn.consultarPuntosDeUsuarioMozo(mozo1), "Los puntos del mozo son 1000");
+		Assert.assertEquals(sistemaLogIn.consultarPuntosDeUsuarioCliente(cliente1), "Los puntos del cliente son 200");
+	}
 		
 }
